@@ -7,7 +7,7 @@ public class spawn : MonoBehaviour
     public RedBird BirdScript;
     public GameObject Kolonlar;
     public float height;
-    
+    public float time;
 
     private void Start()
     {
@@ -16,10 +16,10 @@ public class spawn : MonoBehaviour
 
     public IEnumerator SpawnObject()
     {
-        while (BirdScript.isDead)
+        while (!BirdScript.isDead)
         {
             Instantiate(Kolonlar, new Vector3(3, Random.Range(-height, height), 0), Quaternion.identity);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(time);
 
            
         }
